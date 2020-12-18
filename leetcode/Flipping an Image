@@ -1,0 +1,12 @@
+# Array
+
+## Flipping an Image
+
++[Flipping an Image](#flipping-an-image)
+
+https://leetcode.com/problems/flipping-an-image/
+
+```python
+ def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
+        return [[0 if i == 1 else 1 for i in reversed(r)] for r in A]
+```
