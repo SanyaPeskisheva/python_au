@@ -1,0 +1,41 @@
+# Linked List
+
+## Reorder List
+
++[Reorder List](#reorder-list)
+
+https://leetcode.com/problems/reorder-list/
+
+```python
+def reorderList(self, head: ListNode) -> None:
+        if head == None or head.next == None:
+            return True
+        
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        middle = slow
+        
+        prev = None
+        cur = middle
+        while cur:
+            next = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next
+        head2 = prev
+        
+        res = head
+        while head and head2:
+            next1 = head.next
+            next2 = head2.next
+            head.next = head2
+            head2.next = next1
+            last = head2
+            head = next1
+            head2 = next2
+        last.next = None
+        return res
+```
