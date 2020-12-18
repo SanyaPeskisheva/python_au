@@ -1,0 +1,22 @@
+# Array
+
+## Reshape the Matrix
+
++[Reshape the Matrix](#reshape-the-matrix)
+
+https://leetcode.com/problems/reshape-the-matrix/
+
+```python
+def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
+        if r*c != (len(nums)*len(nums[0])) or not nums:
+            return nums
+        q = []
+        for i in range(len(nums)):
+            for n in range(len(nums[i])):
+                q.append(nums[i][n])
+        newMatrix = [[0 for i in range(c)] for n in range(r)]
+        for i in range(len(newMatrix)):
+            for n in range(len(newMatrix[i])):
+                newMatrix[i][n] = q.pop(0)
+        return newMatrix
+```
