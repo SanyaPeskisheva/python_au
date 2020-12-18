@@ -1,0 +1,25 @@
+# Array
+
+## Image Smoother
+
++[Image Smoother](#image-smoother)
+
+https://leetcode.com/problems/image-smoother/
+
+```python
+def imageSmoother(self, M: List[List[int]]) -> List[List[int]]:
+        rows = len(M)
+        cols = len(M[0])
+        res = [[0]*cols for _ in range(0, rows)]
+        for row in range(0, rows):
+            for col in range(0, cols):
+                num = 0
+                denom = 0
+                for r in range(row - 1, row + 2):
+                    for c in range(col - 1, col  + 2):
+                        if r >= 0 and r < rows and c >= 0 and c < cols:
+                            num += M[r][c]
+                            denom += 1
+                res[row][col] = math.floor(num/denom)
+        return res
+```
