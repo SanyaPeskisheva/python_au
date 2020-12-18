@@ -1,0 +1,16 @@
+# Array
+
+## Transpose Matrix
+
++[Transpose Matrix](#transpose-matrix)
+
+https://leetcode.com/problems/transpose-matrix/
+
+```python
+def transpose(self, A: List[List[int]]) -> List[List[int]]:
+        newMatrix = [[0]*len(A) for i in range(len(A[0]))]
+        for i in range(len(A[0])):
+            for n in range(len(A)):
+                newMatrix[i][n] = A[n][i]
+        return newMatrix
+```
