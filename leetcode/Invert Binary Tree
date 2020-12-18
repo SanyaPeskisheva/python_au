@@ -1,0 +1,21 @@
+# Tree
+
+## Invert Binary Tree 
+
++[Invert Binary Tree](#invert-binary-tree)
+
+https://leetcode.com/problems/invert-binary-tree/ 
+
+```python
+def invertTree(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return None
+        left = root.left
+        right = root.right
+        root.left = right
+        root.right = left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+       
+        return root
+```
