@@ -1,0 +1,20 @@
+# Tree
+
+## Binary Tree Inorder Traversal
+
++[Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
+
+https://leetcode.com/problems/binary-tree-inorder-traversal/ 
+
+```python
+def inorder(self, node, order):
+        if node is None:
+            return
+        self.inorder(node.left, order)
+        order.append(node.val)
+        self.inorder(node.right, order)
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        order = []
+        self.inorder(root, order)
+        return order
+```
