@@ -1,0 +1,19 @@
+# Linked List
+
+## Intersection of Two Linked Lists
+
++[Intersection of Two Linked Lists](#intersection-of-two-linked-lists)
+
+https://leetcode.com/problems/intersection-of-two-linked-lists/
+
+```python
+def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        a = headA
+        b = headB
+        if headA is None or headB is None:
+            return None
+        while a != b :
+            a = headB if a == None else a.next
+            b = headA if b == None else b.next
+        return a
+```
