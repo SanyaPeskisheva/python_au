@@ -1,0 +1,27 @@
+# String
+
+## Reverse Vowels of a String
+
++[Reverse Vowels of a String](#reverse-vowels-of-a-string)
+
+https://leetcode.com/problems/reverse-vowels-of-a-string/
+
+```python
+def reverseVowels(self, s: str) -> str:
+        vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+        vowels_in_s = []
+        s = list(s)
+        for i in range(len(s)):
+            if s[i] in vowels:
+                print(s[i])
+                vowels_in_s.append(s[i])
+                s[i] = "*"
+        reverse_vowels_in_s = vowels_in_s[::-1]
+        count = 0 
+        for i in range(len(s)):
+            if s[i] == "*":
+                s[i] = reverse_vowels_in_s[count]
+                count += 1 
+        s = "".join(s)
+        return s
+```
