@@ -1,0 +1,20 @@
+# String
+
+## Reverse Words in a String III
+
++[Reverse Words in a String III](#reverse-words-in-a-string-III)
+
+https://leetcode.com/problems/reverse-words-in-a-string-iii/
+
+```python
+def reverseWords(self, s: str) -> str:
+        s = s.split()
+        for i in range(len(s)):
+            s[i] = list(s[i])
+            for j in range(len(s[i])):
+                s[i].insert(j, s[i][len(s[i])-1])
+                del s[i][len(s[i])-1]
+            s[i] = ''.join(s[i])
+        s = ' '.join(s)
+        return s
+```
