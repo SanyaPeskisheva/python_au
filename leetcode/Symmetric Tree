@@ -1,0 +1,19 @@
+# Tree
+
+## Symmetric Tree
+
++[Symmetric Tree](#symmetric-tree)
+
+https://leetcode.com/problems/symmetric-tree/ 
+
+```python
+def check(self, node, node2):
+        if node == None and node2 == None:
+            return 1
+        if node != None and node2 != None:
+            if node.val == node2.val:
+                return(self.check(node.left, node2.right)*self.check(node.right, node2.left))
+        return 0
+    def isSymmetric(self, root: TreeNode) -> bool:
+        return self.check(root, root)
+```
