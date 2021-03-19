@@ -1,0 +1,30 @@
+# Linked List
+
+## Merge Two Sorted Lists
+
++[Merge Two Sorted Lists](#merge-two-sorted-lists)
+
+https://leetcode.com/problems/merge-two-sorted-lists/
+
+```python
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        head = ListNode()
+        newlst = head
+        if l1 is None:
+            head.next = l2
+        elif l2 is None:
+            head.next = l1
+        while l1 and l2 is not None:
+            if l1.val <= l2.val:
+                head.next = l1
+                l1 = l1.next
+            else:
+                head.next = l2
+                l2 = l2.next
+            head = head.next
+            if l1 is not None:
+                head.next = l1
+            else:
+                head.next = l2
+        return newlst.next
+```
