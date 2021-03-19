@@ -1,0 +1,25 @@
+# Array
+
+## Squares of a Sorted Array
+
++[Squares of a Sorted Array](#squares-of-a-sorted-array)
+
+https://leetcode.com/problems/squares-of-a-sorted-array/
+
+```python
+def sortedSquares(self, nums: List[int]) -> List[int]:
+        n = 0
+        m = len(nums)-1
+        res = [None]*len(nums)
+        i = len(nums)-1
+        while n <= m:
+            if abs(nums[i]) > abs(nums[m]):
+                res[i] = nums[n]**2
+                n += 1
+                i -= 1
+            else:
+                res[i] = nums[m]**2
+                m -= 1
+                i -= 1
+        return sorted(res)
+```
