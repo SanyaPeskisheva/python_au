@@ -1,0 +1,22 @@
+# Intervals
+
+## Non-overlapping Intervals
+
++ [Non-overlapping Intervals](#non-overlapping-intervals)
+
+https://leetcode.com/problems/non-overlapping-intervals
+
+```python
+def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        num_remove = 0
+        if not intervals:
+            return num_remove
+        intervals.sort(key=lambda x: x[1])
+        end = intervals[0][0]
+        for interval in intervals:
+            if interval[0] < end:
+                num_remove += 1
+            else:
+                end = interval[1]
+        return num_remove
+```
