@@ -38,7 +38,7 @@ def check_prefixes (title):
         return 'everythings is wrong' 
 
 def send_pr_comment (pr, message_error):
-    intelligence = {'body': massege_error,
+    intelligence = {'body': message_error,
                     'path': requests.get(pr['url'] + '/files', headers = prepare_headers()).json()[0]['filename'],
                     'position': 1,
                     'commit_id': pr['head']['sha']}
@@ -50,7 +50,7 @@ def verify_pr (pr):
     if len(comments) != 0:
         send_pr_comment(pr, '/n/n'.json(comments))
     if len(check_prefixes(pr['title'])) > 3:
-        comment = check_prefixes(pr['title']) + 'in pull recuest title'
+        comment = check_prefixes(pr['title']) + 'in pull request title'
         comments.append(comment)
     for commit in (get_all_pr_commits(pr)):
         if len(check_prefixes(commit['message'])) > 3:
