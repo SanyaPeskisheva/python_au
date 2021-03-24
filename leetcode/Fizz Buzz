@@ -1,0 +1,25 @@
+#Math
+
+## Fizz Buzz
+
++[Fizz Buzz](#fizz-buzz)
+
+https://leetcode.com/problems/fizz-buzz/
+
+```python
+def fizzBuzz(self, n: int) -> List[str]:
+    i = 1
+    lst = []       
+    while i <= n:
+        if (i % 3 == 0) and (i % 5 == 0) :
+            lst.append("FizzBuzz")
+        elif i % 3 == 0:
+            lst.append("Fizz")
+        elif i % 5 == 0:
+            lst.append("Buzz")
+        else:      
+            a = str(i)
+            lst.append(a)
+        i = i + 1   
+    return lst
+```
