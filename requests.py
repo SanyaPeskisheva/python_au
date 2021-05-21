@@ -56,7 +56,57 @@ def verify_pr (pr):
         if len(check_prefixes(commit['message'])) > 3:
             comment = check_prefixes(commit['message']) + 'in commit message'
             comments.append(comment)
-  
+
+def check_author(comment):
+    author = comment['user']['login']
+    return author
+
+def compare_dates(d1, d2):
+    if d1[0] > d2[0]:
+        return d1
+    elif d1[0] == d2[0]:
+        if d1[1] > d2[1]:
+            return d1
+        elif d1[1] == d2[1]:
+            if d1[2] > d2[2]:
+                return d1
+            elif d1[2] == d2[2]:
+                if d1[3] > d2[3]:
+                    return d1
+                elif d1[3] == d2[3]:
+                    if d1[4] > d2[4]:
+                        return d1
+                    elif d1[4] == d2[4]:
+                        if d1[5] > d2[5]:
+                            return d1
+                        elif d1[5] == d2[5]:
+                            return 0 
+    return d2
+
+def VERIFICATION_RESULT(comment):
+    message = comment['body']
+    return (message.startswith('VERIFICATION RESULT'))
+
+def get_time_commit(commit):
+    date = commit['commit']['author']['date']
+    return date
+
+def get_time_last_comment(all_prs):
+    x = ['0', '0', '0', '0', '0', '0']
+    for pr in (all_prs):
+        comments = requests.get(pr['review_comments_url']).json()
+        for comment in comments:
+            if comment['user']['login'] == LOGIN:
+                new_d = comment['created_at']
+                new_d = new_date.split('-')
+                new_d.append(new_date[2][:2])
+                new_d.append(new_date[2][3:-7])
+                new_d.append(new_date[2][6:-4])
+                new_d.append(new_date[2][9:-1])
+                new_d.pop(2)
+                x = compare_dates(x, new_d)
+                print(x)
+
 def main ():
     user_login = 'SanyaPeskisheva'
     repos_name = 'python_au'
