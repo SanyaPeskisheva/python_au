@@ -24,5 +24,5 @@ def dfs(root):
         elif(vis[adj]==1):
             return True
     vis[root]=2
-    return False
+    return False 
 ```
