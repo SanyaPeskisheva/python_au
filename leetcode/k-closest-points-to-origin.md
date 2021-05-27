@@ -6,7 +6,7 @@
   
 https://leetcode.com/problems/k-closest-points-to-origin/ 
 
-''' python
+``` python
 def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
     arraydist = []
     arraydistok = []
@@ -20,4 +20,4 @@ def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         arraydistok.append(arraydist[i][1])
         
     return arraydistok
-'''
+```
