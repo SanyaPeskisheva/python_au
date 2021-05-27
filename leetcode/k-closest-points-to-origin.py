@@ -1,8 +1,8 @@
 # Math
 
-+[K Closest Points to Origin](#k-closest-point-to-origin)
++ [K Closest Points To Origin](#k-closest-point-to-origin)
   
-## K Closest Point to Origin
+## K Closest Point To Origin
   
 https://leetcode.com/problems/k-closest-points-to-origin/ 
 
@@ -20,3 +20,4 @@ def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         arraydistok.append(arraydist[i][1])
         
     return arraydistok
+'''
